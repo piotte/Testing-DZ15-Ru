@@ -1,6 +1,7 @@
+import my.game.logic.gameCore;
+
 class Main {
     public static void main(String[] args) {
-        boolean isGreenLight = false;
 
         int speedOfPlayer1 = 5;
         int speedOfPlayer2 = 0;
@@ -12,20 +13,14 @@ class Main {
         // Если свет красный, то выбывает каждый, чья скорость не 0.
 
         int playersOutOfGame = 0;
-
-        if (isGreenLight){
-            playersOutOfGame = 0;
+        if (gameCore.isPlayerOut(speedOfPlayer1)) {
+            playersOutOfGame++;
         }
-        else{
-            if (speedOfPlayer1 != 0) {
-                playersOutOfGame++;
-            }
-            if (speedOfPlayer2 != 0) {
-                playersOutOfGame++;
-            }
-            if (speedOfPlayer3 != 0) {
-                playersOutOfGame++;
-            }
+        if (gameCore.isPlayerOut(speedOfPlayer2)) {
+            playersOutOfGame++;
+        }
+        if (gameCore.isPlayerOut(speedOfPlayer3)) {
+            playersOutOfGame++;
         }
 
         System.out.println("Количество выбывших игроков: " + playersOutOfGame);
